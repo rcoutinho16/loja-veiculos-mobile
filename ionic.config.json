@@ -1,0 +1,7 @@
+{
+  "name": "loja-veiculos-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

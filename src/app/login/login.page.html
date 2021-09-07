@@ -1,0 +1,39 @@
+<ion-content>
+
+
+  <div style="margin-top: 20%;">
+
+    <div style="text-align: center;">
+      <img src="../../assets/logo.png" width="70%">
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+      <ion-card color="gray-dark">
+        <ion-card-header>
+          <ion-card-title style="font-size: x-large; text-align: center;"> Login </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input type="email" id="email" name="email" placeholder="Informe o seu e-mail" #email="ngModel" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" id="pass" name="pass" placeholder="Informe a sua senha" #pass="ngModel" [(ngModel)]="user.pass"></ion-input>
+          </ion-item>
+
+          <ion-button type="submit" expand="block">Login</ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+
+</ion-content>

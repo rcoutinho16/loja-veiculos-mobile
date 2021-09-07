@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="blue">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Car Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header color="gray-dark">
+      <ion-card-title>{{car.make}}</ion-card-title>
+      <ion-card-subtitle>{{car.model}}</ion-card-subtitle>
+
+      <div class="box-imagem">
+        <img src="../../assets/lotus.jpg" class="imagem">
+      </div>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+
+      <form>
+        <ion-item>
+          <ion-label> <strong>Price</strong> </ion-label>
+          <ion-input type="text" name="price" [ngModel]="car.price" [disabled]="true">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> <strong>KM</strong> </ion-label>
+          <ion-input type="number" name="km" [ngModel]="car.km" [disabled]="true">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> <strong>Year</strong> </ion-label>
+          <ion-input type="number" name="year" [ngModel]="car.year" [disabled]="true">
+          </ion-input>
+        </ion-item>
+      </form>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
