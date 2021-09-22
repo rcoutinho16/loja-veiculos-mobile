@@ -9,39 +9,39 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'about-us',
-    loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+    loadChildren: () => import('./views/about-us/about-us.module').then( m => m.AboutUsPageModule)
   },
   {
     path: 'contact',
-    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
+    loadChildren: () => import('./views/contact/contact.module').then( m => m.ContactPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./views/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+    loadChildren: () => import('./views/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
     path: 'admin-cars',
-    loadChildren: () => import('./admin-cars/admin-cars.module').then( m => m.AdminCarsPageModule)
+    loadChildren: () => import('./views/admin-cars/admin-cars.module').then( m => m.AdminCarsPageModule)
   },
   {
     path: 'car-create',
-    loadChildren: () => import('./car-create/car-create.module').then( m => m.CarCreatePageModule)
+    loadChildren: () => import('./views/car-create/car-create.module').then( m => m.CarCreatePageModule)
   },
   {
     path: 'car-details/:id',
-    loadChildren: () => import('./car-details/car-details.module').then( m => m.CarDetailsPageModule)
+    loadChildren: () => import('./views/car-details/car-details.module').then( m => m.CarDetailsPageModule)
   },
   {
     path: 'car-edit/:id',
-    loadChildren: () => import('./car-edit/car-edit.module').then( m => m.CarEditPageModule)
+    loadChildren: () => import('./views/car-edit/car-edit.module').then( m => m.CarEditPageModule)
   }
 ];
 

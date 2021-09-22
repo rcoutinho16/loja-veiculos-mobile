@@ -17,19 +17,35 @@
       <h3> Veículos </h3>
     </ion-list-header>
 
-    <ion-item *ngFor="let car of cars" [routerLink]="['/car-details', car.id]">
+    <ion-item *ngFor="let car of cars">
+
       <ion-avatar slot="start">
-        <img src="../../assets/lotus.jpg">
+        <img src="../../assets/lotus.jpg" [routerLink]="['/car-details', car.id]">
       </ion-avatar>
-      <ion-label>
+      <ion-label [routerLink]="['/car-details', car.id]">
         <h2> {{car.make}} </h2>
         <h2> {{car.model}} </h2>
         <h3> R$ {{car.price}} </h3>
         <h3> KM {{car.km}} </h3>
       </ion-label>
+
+      <ion-button color="danger" (click)="delete(car.id)">
+        Delete
+      </ion-button>
+
+      <ion-button color="warning" [routerLink]="['/car-edit', car.id]">
+        Edit
+      </ion-button>
+
     </ion-item>
 
   </ion-list>
 
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" [routerLink]="['/car-create']">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>
