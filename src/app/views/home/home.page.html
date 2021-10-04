@@ -17,17 +17,21 @@
       <h3> Veículos </h3>
     </ion-list-header>
 
-    <ion-item *ngFor="let car of cars" [routerLink]="['/car-details', car.id]">
-      <ion-avatar slot="start">
-        <img src="../../assets/lotus.jpg">
-      </ion-avatar>
-      <ion-label>
-        <h2> {{car.make}} </h2>
-        <h2> {{car.model}} </h2>
-        <h3> R$ {{car.price}} </h3>
-        <h3> KM {{car.km}} </h3>
-      </ion-label>
-    </ion-item>
+    <ion-card *ngFor="let car of cars" [routerLink]="['/car-details', car.id]">
+
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let carImg of car.images">
+          <img [src]=carImg.src>
+        </ion-slide>
+      </ion-slides>
+
+      <ion-card-header>
+        <ion-card-title> {{car.make}} </ion-card-title>
+        <ion-card-title> {{car.model}} </ion-card-title>
+        <ion-card-subtitle> R$ {{car.price}} </ion-card-subtitle>
+        <ion-card-subtitle> KM {{car.km}} </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
 
   </ion-list>
 

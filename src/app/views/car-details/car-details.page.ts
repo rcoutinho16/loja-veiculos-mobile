@@ -13,6 +13,12 @@ export class CarDetailsPage implements OnInit {
 
   public car: Car;
 
+  public slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
+
+
   constructor(private activatedRoute: ActivatedRoute,
               private carsService: CarsService) { }
 

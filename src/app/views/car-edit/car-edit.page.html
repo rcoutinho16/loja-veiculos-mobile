@@ -13,9 +13,11 @@
   <ion-card>
 
     <ion-card-header color="gray-dark">
-      <div class="box-imagem">
-        <img src="../../assets/lotus.jpg" class="imagem">
-      </div>
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let carImg of car.images">
+          <img [src]=carImg.src>
+        </ion-slide>
+      </ion-slides>
     </ion-card-header>
 
     <ion-card-content>

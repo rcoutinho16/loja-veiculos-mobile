@@ -12,6 +12,11 @@ export class HomePage implements OnInit {
 
   public cars: Car[] = [];
 
+  public slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
+
   constructor(private carsService: CarsService) { }
 
   ngOnInit() {

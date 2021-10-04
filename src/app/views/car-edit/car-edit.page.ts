@@ -15,6 +15,12 @@ export class CarEditPage implements OnInit {
 
   public car: Car = new Car();
 
+  public slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
+
+
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private carService: CarsService) { }

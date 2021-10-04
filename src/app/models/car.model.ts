@@ -1,3 +1,5 @@
+import { Image } from './image.model';
+
 export class Car {
     id: number;
     make: string;
@@ -6,6 +8,7 @@ export class Car {
     year: string;
     km: string;
     show: boolean;
+    images: Array<Image>;
 
     constructor()
     constructor(id?: number,
@@ -14,7 +17,8 @@ export class Car {
                 price?: string,
                 year?: string,
                 km?: string,
-                show?: boolean){
+                show?: boolean,
+                images?: Array<Image>){
         this.id = (id)? id: null;
         this.make = (make)? make: '';
         this.model = (model)? model: '';
@@ -22,6 +26,7 @@ export class Car {
         this.year = (year)? year: '';
         this.km = (km)? km: '';
         this.show = (show)? show: false;
+        this.images = (images)? images: null;
     }
 }
 

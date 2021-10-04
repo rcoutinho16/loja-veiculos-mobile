@@ -20,7 +20,7 @@
     <ion-item *ngFor="let car of cars">
 
       <ion-avatar slot="start">
-        <img src="../../assets/lotus.jpg" [routerLink]="['/car-details', car.id]">
+        <img [src]=car.images[0].src [routerLink]="['/car-details', car.id]">
       </ion-avatar>
       <ion-label [routerLink]="['/car-details', car.id]">
         <h2> {{car.make}} </h2>
