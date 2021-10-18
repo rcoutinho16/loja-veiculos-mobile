@@ -11,7 +11,9 @@ import { CarsService } from '../../services/car.service';
 })
 export class CarDetailsPage implements OnInit {
 
-  public car: Car;
+  public car: Car = new Car();
+
+  public currentId: string;
 
   public slideOpts = {
     initialSlide: 0,
@@ -20,12 +22,15 @@ export class CarDetailsPage implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute,
-              private carsService: CarsService) { }
+              private carService: CarsService) { }
 
   ngOnInit() {
-    const id = Number( this.activatedRoute.snapshot.paramMap.get('id') );
-
-    this.car = this.carsService.getCarById(id);
+    this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.currentId);
+    this.carService.getCarById(this.currentId).subscribe((response: Car) => {
+      console.log(response);
+      this.car = response;
+    });
   }
 
 }

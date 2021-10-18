@@ -17,7 +17,7 @@
       <h3> Veículos </h3>
     </ion-list-header>
 
-    <ion-card *ngFor="let car of cars" [routerLink]="['/car-details', car.id]">
+    <ion-card *ngFor="let car of cars" [routerLink]="['/car-details', car._id]">
 
       <ion-slides pager="true" [options]="slideOpts">
         <ion-slide *ngFor="let carImg of car.images">

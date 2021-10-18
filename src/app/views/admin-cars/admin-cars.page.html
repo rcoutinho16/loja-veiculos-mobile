@@ -20,20 +20,20 @@
     <ion-item *ngFor="let car of cars">
 
       <ion-avatar slot="start">
-        <img [src]=car.images[0].src [routerLink]="['/car-details', car.id]">
+        <img *ngIf="car.images.length>0" [src]=car.images[0].src [routerLink]="['/car-details', car._id]">
       </ion-avatar>
-      <ion-label [routerLink]="['/car-details', car.id]">
+      <ion-label [routerLink]="['/car-details', car._id]">
         <h2> {{car.make}} </h2>
         <h2> {{car.model}} </h2>
         <h3> R$ {{car.price}} </h3>
         <h3> KM {{car.km}} </h3>
       </ion-label>
 
-      <ion-button color="danger" (click)="delete(car.id)">
+      <ion-button color="danger" (click)="delete(car._id)">
         Delete
       </ion-button>
 
-      <ion-button color="warning" [routerLink]="['/car-edit', car.id]">
+      <ion-button color="warning" [routerLink]="['/car-edit', car._id]">
         Edit
       </ion-button>
 

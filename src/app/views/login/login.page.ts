@@ -11,7 +11,7 @@ import { User } from 'src/app/models/user.model';
 export class LoginPage implements OnInit {
 
   public user: User = {
-    id: 0,
+    _id: '',
     name: '',
     email: '',
     pass: '',

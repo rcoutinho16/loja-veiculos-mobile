@@ -13,15 +13,16 @@ export class CarCreatePage implements OnInit {
 
   public car: Car = new Car();
 
-  constructor(private carsService: CarsService,
-              private route: Router) { }
+  constructor(private carService: CarsService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   addCar(){
-    this.carsService.addCar(this.car);
-    this.route.navigate(['admin-cars']);
+    this.carService.addCar(this.car).subscribe((response) => {
+      this.router.navigate(['/admin-cars']);
+    });
   }
 
 }

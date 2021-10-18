@@ -1,4 +1,5 @@
 export class Dealership{
+    _id: string;
     address: string;
     adressGoogleMapsUrl: string;
     telephone: string;
@@ -13,7 +14,8 @@ export class Dealership{
     saturdayClosing: string;
 
     constructor()
-    constructor(address?: string,
+    constructor(_id?: string,
+                address?: string,
                 adressGoogleMapsUrl?: string,
                 telephone?: string,
                 facebookUrl?: string,
@@ -25,6 +27,7 @@ export class Dealership{
                 mondayToFridayClosing?: string,
                 saturdayOpening?: string,
                 saturdayClosing?: string,){
+        this._id = (_id)? _id: '';
         this.address = (address)? address: '';
         this.adressGoogleMapsUrl = (adressGoogleMapsUrl)? adressGoogleMapsUrl: '';
         this.telephone = (telephone)? telephone: '';

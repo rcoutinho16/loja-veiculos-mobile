@@ -26,17 +26,17 @@ export class CarEditPage implements OnInit {
     private carService: CarsService) { }
 
   ngOnInit() {
-
-    let id: number;
     this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
-    id = Number(this.currentId);
-
-    this.car = this.carService.getCarById(id);
+    this.carService.getCarById(this.currentId).subscribe((response: Car) => {
+      this.car = response;
+      console.log(this.car);
+    });
   }
 
   updateCar(){
-    this.carService.updateCar(this.car);
-    this.router.navigate(['/admin-cars']);
+    this.carService.updateCar(this.car).subscribe((response) => {
+      this.router.navigate(['/admin-cars']);
+    });
   }
 
 }

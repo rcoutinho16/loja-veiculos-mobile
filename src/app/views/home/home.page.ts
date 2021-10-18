@@ -20,7 +20,11 @@ export class HomePage implements OnInit {
   constructor(private carsService: CarsService) { }
 
   ngOnInit() {
-    this.cars = this.carsService.getCars();
+    this.carsService.getCars().subscribe(
+      (response: Car[]) => {
+        this.cars = response;
+      }
+    );
   }
 
 }

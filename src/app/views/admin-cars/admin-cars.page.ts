@@ -12,14 +12,20 @@ export class AdminCarsPage implements OnInit {
 
   public cars: Car[] = [];
 
-  constructor(private carsService: CarsService) { }
+  constructor(private carService: CarsService) { }
 
   ngOnInit() {
-    this.cars = this.carsService.getCars();
+    this.carService.getCars().subscribe((response: Car[]) => {
+      this.cars = response;
+    });
   }
 
-  delete(id: number){
-    this.carsService.deleteCar(id);
+  delete(id: string){
+    this.carService.deleteCar(id).subscribe((response) => {
+      this.carService.getCars().subscribe((response2: Car[]) => {
+        this.cars = response2;
+      });
+    });
   }
 
 }
