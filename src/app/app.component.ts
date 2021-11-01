@@ -12,6 +12,7 @@ export class AppComponent {
     { title: 'Login', url: '/login', icon: 'log-in' },
     { title: 'Admin', url: '/admin', icon: 'settings' },
     { title: 'Admin Cars', url: '/admin-cars', icon: 'car-sport' },
+    { title: 'Admin Users', url: '/admin-users', icon: 'people-outline' },
   ];
   constructor() {}
 }

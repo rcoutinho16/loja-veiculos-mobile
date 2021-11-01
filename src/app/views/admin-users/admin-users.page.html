@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="blue">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Loja de Veículos</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="gray-light">
+
+  <ion-list>
+    <ion-list-header color="gray-dark">
+      <h3> Users </h3>
+    </ion-list-header>
+
+    <ion-item *ngFor="let user of users">
+
+      <ion-avatar slot="start">
+        <img [routerLink]="['/user-details', user._id]">
+      </ion-avatar>
+      <ion-label [routerLink]="['/user-details', user._id]">
+        <h2> {{user.username}} </h2>
+        <h2> {{user.email}} </h2>
+      </ion-label>
+
+      <ion-button color="danger" (click)="delete(user._id)">
+        Delete
+      </ion-button>
+
+      <ion-button color="warning" [routerLink]="['/user-edit', user._id]">
+        Edit
+      </ion-button>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

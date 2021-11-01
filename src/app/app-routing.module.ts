@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AuthGuardAdminGuard } from './auth/auth-guard-admin.guard';
+import { AuthGuardUserGuard } from './auth/auth-guard-user.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -25,15 +28,18 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./views/admin/admin.module').then( m => m.AdminPageModule)
+    loadChildren: () => import('./views/admin/admin.module').then( m => m.AdminPageModule),
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'admin-cars',
-    loadChildren: () => import('./views/admin-cars/admin-cars.module').then( m => m.AdminCarsPageModule)
+    loadChildren: () => import('./views/admin-cars/admin-cars.module').then( m => m.AdminCarsPageModule),
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'car-create',
-    loadChildren: () => import('./views/car-create/car-create.module').then( m => m.CarCreatePageModule)
+    loadChildren: () => import('./views/car-create/car-create.module').then( m => m.CarCreatePageModule),
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'car-details/:id',
@@ -41,7 +47,17 @@ const routes: Routes = [
   },
   {
     path: 'car-edit/:id',
-    loadChildren: () => import('./views/car-edit/car-edit.module').then( m => m.CarEditPageModule)
+    loadChildren: () => import('./views/car-edit/car-edit.module').then( m => m.CarEditPageModule),
+    canActivate: [AuthGuardAdminGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./views/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'admin-users',
+    loadChildren: () => import('./views/admin-users/admin-users.module').then( m => m.AdminUsersPageModule),
+    canActivate: [AuthGuardAdminGuard]
   }
 ];
 

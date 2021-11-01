@@ -7,7 +7,7 @@
       <img src="../../assets/logo.png" width="70%">
     </div>
 
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <form #loginForm="ngForm" *ngIf="!isLoggedIn" (ngSubmit)="onSubmit(loginForm)">
 
       <ion-card color="gray-dark">
         <ion-card-header>
@@ -16,22 +16,40 @@
 
         <ion-card-content>
           <ion-item style="margin-bottom: 7px; border-radius: 10px;">
-            <ion-label position="floating">E-mail</ion-label>
-            <ion-input type="email" id="email" name="email" placeholder="Informe o seu e-mail" #email="ngModel" [(ngModel)]="user.email"></ion-input>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input 
+              type="text" 
+              id="username" 
+              name="username" 
+              #username="ngModel" 
+              [(ngModel)]="user.username"></ion-input>
           </ion-item>
 
           <ion-item style="margin-bottom: 7px; border-radius: 10px;">
             <ion-label position="floating">Senha</ion-label>
-            <ion-input type="password" id="pass" name="pass" placeholder="Informe a sua senha" #pass="ngModel" [(ngModel)]="user.pass"></ion-input>
+            <ion-input 
+            type="password" 
+            id="password" 
+            name="password" 
+            #pass="ngModel" 
+            [(ngModel)]="user.password"></ion-input>
           </ion-item>
 
           <ion-button type="submit" expand="block">Login</ion-button>
+
+          <ion-button expand="block" color="warning" [routerLink]="['/register']">
+            Register
+          </ion-button>
 
         </ion-card-content>
 
       </ion-card>
 
     </form>
+
+    <ion-item *ngIf="isLoggedIn">
+      <ion-label>Logged in as {{ roles }}.</ion-label>
+    </ion-item>
 
   </div>
 

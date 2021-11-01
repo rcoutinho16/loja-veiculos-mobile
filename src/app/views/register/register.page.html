@@ -1,0 +1,80 @@
+<ion-content>
+
+  <div style="margin-top: 20%;">
+
+    <div style="text-align: center;">
+      <img src="../../assets/logo.png" width="70%">
+    </div>
+
+    <form #form="ngForm" [formGroup]="userForm" (submit)="register()">
+
+      <ion-card color="gray-dark">
+        <ion-card-header>
+          <ion-card-title style="font-size: x-large; text-align: center;">Register</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Username</ion-label>
+
+            <ion-input 
+              type="text" 
+              placeholder="Inform the username" 
+              name="username" 
+              formControlName="username">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(userForm.get('username')?.errors?.required || userForm.get('username')?.errors?.minlength ||
+            userForm.get('username')?.errors?.maxlength) && form.submitted">
+              Inform the username (6 to 150 characters).
+            </small>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">E-mail</ion-label>
+
+            <ion-input 
+              type="email" 
+              placeholder="Inform the E-mail" 
+              name="email" 
+              formControlName="email">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(userForm.get('email')?.errors?.required || userForm.get('email')?.errors?.email) && form.submitted">
+              Inform a valid E-mail.
+            </small>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input 
+              type="password"
+              placeholder="Informe a password" 
+              name="password"
+              formControlName="password">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(userForm.get('password')?.errors?.required || userForm.get('password')?.errors?.minlength) && form.submitted">
+              Password should have at least 6 characters.
+            </small>
+          </ion-item>
+
+          <ion-button type="submit" expand="block">
+            Register
+          </ion-button>
+
+          <ion-button expand="block" color="warning" [routerLink]="['/login']">
+            Back
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+
+    <ion-item *ngIf="this.errorMessage">
+      <ion-label>Error:{{this.errorMessage}}.</ion-label>
+    </ion-item>
+  </div>
+</ion-content>
